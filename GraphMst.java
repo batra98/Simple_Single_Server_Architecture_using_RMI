@@ -1,52 +1,55 @@
 import java.util.*;
 
-public class GraphMst
+public class GraphMst implements Mst
 {
-	static class Edge
-	{
-		int from,to,weight;
 
-		Edge(int f,int t,int w)
-		{
-			from = f;
-			to = t;
-			weight = w;
-		}
-	}
+	// static class Edge
+	// {
+	// 	int from,to,weight;
 
-	static class Graph
-	{
-		int V;
-		ArrayList<ArrayList<Edge>> G;
+	// 	Edge(int f,int t,int w)
+	// 	{
+	// 		from = f;
+	// 		to = t;
+	// 		weight = w;
+	// 	}
+	// }
 
-		Graph(int vertices)
-		{
-			V = vertices;
-			G = new ArrayList<>();
+	// static class Graph
+	// {
+	// 	int V;
+	// 	ArrayList<ArrayList<Edge>> G;
 
-			for(int i=0;i<vertices;i++)
-			{
-				G.add(new ArrayList<>());
-			}
-		}
-	}
+	// 	Graph(int vertices)
+	// 	{
+	// 		V = vertices;
+	// 		G = new ArrayList<>();
 
-	void printGraph(Graph graph)
-	{
-		int V = graph.V;
+	// 		for(int i=0;i<vertices;i++)
+	// 		{
+	// 			G.add(new ArrayList<>());
+	// 		}
+	// 	}
+	// }
 
-		for(int i=0;i<V;i++)
-		{
-			System.out.print(i+"->");
-			for(int j = 0;j<graph.G.get(i).size();j++)
-			{
-				System.out.print(graph.G.get(i).get(j).to+","+graph.G.get(i).get(j).weight+" ");
-			}
-			System.out.println();
-		}
-	}
+	// public void printGraph(Graph graph)throws java.rmi.RemoteException
+	// {
+	// 	int V = graph.V;
 
-	void addEdge(Graph graph,int from,int to,int weight)
+	// 	for(int i=0;i<V;i++)
+	// 	{
+	// 		System.out.print(i+"->");
+	// 		for(int j = 0;j<graph.G.get(i).size();j++)
+	// 		{
+	// 			System.out.print(graph.G.get(i).get(j).to+","+graph.G.get(i).get(j).weight+" ");
+	// 		}
+	// 		System.out.println();
+	// 	}
+	// }
+
+
+
+	public void addEdge(Graph graph,int from,int to,int weight)throws java.rmi.RemoteException
 	{
 		Edge e1 = new Edge(from,to,weight);
 		Edge e2 = new Edge(to,from,weight);
@@ -58,7 +61,7 @@ public class GraphMst
 		// System.out.println(e1.from+" "+e1.to+" "+e1.weight);
 	}
 
-	ArrayList<Edge> mstPrims(Graph graph)
+	public ArrayList<Edge> mstPrims(Graph graph)throws java.rmi.RemoteException
 	{
 		ArrayList<ArrayList<Edge>> G = graph.G;
 		ArrayList<Edge> mst = new ArrayList<>();
@@ -120,11 +123,15 @@ public class GraphMst
 
 	}
 
-	public static void main(String[] args)
+	public static void main(String[] args)throws java.rmi.RemoteException
 	{
-		Graph graph = new Graph(9);
+		// Graph graph = new Graph(9);
 		GraphMst e = new GraphMst();
+		Graph graph = new Graph(9);
+
 		ArrayList<Edge> mst;
+
+		// System.out.println(e);
 
 		e.addEdge(graph, 0, 1, 4);
 		e.addEdge(graph, 0, 1, 2);
@@ -146,8 +153,8 @@ public class GraphMst
 		e.addEdge(graph, 6, 8, 6); 
 		e.addEdge(graph, 7, 8, 7);
 
-		System.out.println("Printing Graph");
-		e.printGraph(graph);
+		// // System.out.println("Printing Graph");
+		// // e.printGraph(graph);
 
 		mst = e.mstPrims(graph);
 
