@@ -54,7 +54,7 @@ public class GraphMst extends java.rmi.server.UnicastRemoteObject implements Mst
 		}
 	}
 
-	public void newGraph(String identifier,int n)throws java.rmi.RemoteException
+	public void new_graph(String identifier,int n)throws java.rmi.RemoteException
 	{
 		if(graph_identifier.containsKey(identifier) == true)
 			System.out.println("Graph with same key already present");
@@ -72,7 +72,7 @@ public class GraphMst extends java.rmi.server.UnicastRemoteObject implements Mst
 
 
 
-	public void addEdge(String identifier,int from,int to,int weight)throws java.rmi.RemoteException
+	public void add_edge(String identifier,int from,int to,int weight)throws java.rmi.RemoteException
 	{
 		if(graph_identifier.containsKey(identifier) == false)
 			System.out.println("No Graph with the given identifier present");
@@ -98,7 +98,7 @@ public class GraphMst extends java.rmi.server.UnicastRemoteObject implements Mst
 		// System.out.println(e1.from+" "+e1.to+" "+e1.weight);
 	}
 
-	public int mstPrims(String identifier)throws java.rmi.RemoteException
+	public int get_mst(String identifier)throws java.rmi.RemoteException
 	{
 
 		ArrayList<Edge> mst = new ArrayList<>();
