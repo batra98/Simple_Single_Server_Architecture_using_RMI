@@ -2,8 +2,9 @@ import java.util.*;
 
 public interface Mst extends java.rmi.Remote
 {
-	ArrayList<Edge> mstPrims(Graph graph)throws java.rmi.RemoteException;
-	void addEdge(Graph graph,int from,int to,int weight)throws java.rmi.RemoteException;
+	int mstPrims(String identifier)throws java.rmi.RemoteException;
+	void addEdge(String identifier,int from,int to,int weight)throws java.rmi.RemoteException;
+	void newGraph(String identifier,int n)throws java.rmi.RemoteException;
 	// void printGraph(Graph graph)throws java.rmi.RemoteException;
 
 	public class Edge
@@ -28,7 +29,7 @@ public interface Mst extends java.rmi.Remote
 			V = vertices;
 			G = new ArrayList<>();
 
-			for(int i=0;i<vertices;i++)
+			for(int i=0;i<=vertices;i++)
 			{
 				G.add(new ArrayList<>());
 			}
