@@ -140,7 +140,13 @@ public class GraphMst extends java.rmi.server.UnicastRemoteObject implements Mst
 				p.add(G.get(1).get(i));
 			}
 
+
+
 			// System.out.println(p);
+
+			if(p.isEmpty() == true)
+				return -1;
+
 
 			visited[1] = true;
 
