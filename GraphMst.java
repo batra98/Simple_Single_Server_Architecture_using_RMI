@@ -65,7 +65,7 @@ public class GraphMst extends java.rmi.server.UnicastRemoteObject implements Mst
 
 			// System.out.println(graph_identifier);
 
-			System.out.println("Graph added");
+			// System.out.println("Graph added");
 		}
 
 	}
@@ -89,16 +89,16 @@ public class GraphMst extends java.rmi.server.UnicastRemoteObject implements Mst
 			g.G.get(to).add(e2);
 
 
-			System.out.println("Added Edge");
+			// System.out.println("Added Edge");
 
-			printGraph(g);
+			// printGraph(g);
 		}
 		
 
 		// System.out.println(e1.from+" "+e1.to+" "+e1.weight);
 	}
 
-	public int get_mst(String identifier)throws java.rmi.RemoteException
+	public long get_mst(String identifier)throws java.rmi.RemoteException
 	{
 
 		ArrayList<Edge> mst = new ArrayList<>();
@@ -173,7 +173,8 @@ public class GraphMst extends java.rmi.server.UnicastRemoteObject implements Mst
 				mst.add(e);
 			}
 
-			int ans = 0,l = mst.size();
+			long ans = 0;
+			int l = mst.size();
 
 			// System.out.println(l);
 
